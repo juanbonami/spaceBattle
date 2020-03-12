@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+    <div>
+      <h2>Space-battle</h2>
+      <button onclick="shipAttack(USSspaceShip,alienShip1,accuracy)">Click to commence the space battle</button>
+      <h4>USSship makes an attack <br>
+      returns "Attack successful" or "You missed your shot". </h4>
+    </div>  
+
+
+    <script>
+      // console.log('hello world');
+
+// let spaceShip = {
+
+//     hull: 10,
+//     firepower: 10,
+//     accuracy: Math.floor(Math.random() * 2)
+
+// }
+
+let USSspaceShip = {
+  hull:20,
+  firepower:5,
+  accuracy:.7
+}
+
+
+let alienShip1 = {
+  hull:4,
+  firepower:3,
+  accuracy:.7
+}
+let pointsEarned = 0;
+
+const checkPoints = (obj) => {
+    obj.hull 
+    
+}
+
+const firePower = (obj) => {
+    let attack = Math.floor(Math.random() )
+    console.log(attack);
+    // obj.firepower -= attack;
+    // console.log(obj.firepower);
+    console.log(obj.hull -= attack); 
+}
+
+const accuracy = () => {
+    let chanceOfHit = Math.floor(Math.random() * 2);
+      return chanceOfHit;
+}
+
+const shipAttack = (obj1, obj2,func) => {
+  if (func() == 1) {
+   console.log(`USSship firepower is now ${obj1.firepower-=1}`)
+    console.log(`Attack successful! alienShip1 was hit hull is now ${obj2.hull -= 1}`)
+    if (obj2.hull == 0) {
+      console.log('alienship1 has been destroyed!')
+    }else if (obj1.firepower == 0) {
+      console.log('Your ship is out of firepower, you lose the game.')
+    }
+  }else {
+    console.log('You missed your shot!');
+    console.log(`USSship firepower is now ${obj1.firepower-=1}`)
+    alienAttack(alienShip1,USSspaceShip,accuracy);
+  }
+}
+
+const alienAttack = (obj1,obj2,func) => {
+  if (func() == 1) {
+    console.log(`alienShip1 firepower is now ${obj1.firepower-=1}`)
+    console.log(`Attack successful! USSship was hit hull is now ${obj2.hull-=1}`)
+    if (obj2.hull == 0) {
+      console.log('Wasted! You lose.')
+    }else if (obj1.firepower == 0) {
+      console.log('alienship out of firepower, you win!')
+    }
+  }else {
+    console.log('alienship1 missed shot!');
+    console.log(`alienShip1 firepower is now ${obj1.firepower-=1}`)
+    
+  }
+}
+
+// shipAttack(USSspaceShip,alienShip1,accuracy);
+
+
+
+    </script>
+  </body>
+</html>
